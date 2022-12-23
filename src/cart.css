@@ -1,0 +1,34 @@
+.inputCart{
+    width:99%
+}
+.inputCartSubmit{
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.cartUnits{
+        display: flex;
+        justify-content: space-around;
+        align-items: center
+    
+}
+.headerTopCart{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   align-items:center;
+    text-align: center;
+    font-weight: bold;
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 10vh;
+  }
+@media (max-width:540px) {
+    .cartUnits{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+}
+}

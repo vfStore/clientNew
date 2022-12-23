@@ -1,0 +1,62 @@
+.TotalAmount{
+    width: 96%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow:  10px 10px 30px #aba8a8,
+      -5px -5px 10px #ffffff;
+    padding:3px;
+    font-weight:bold;
+    font-size: large;
+}
+.TotalProducts{
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow:  3px 3px 10px #dad9d9,
+      -2px -2px 5px #ffffff;
+      padding:3px;
+
+}
+.TotalAmountFix{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:12vh;
+  margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow:  3px 3px 10px #aba8a8,
+      -2px -2px 5px #ffffff;
+    padding:3px;
+    font-weight:bold;
+    font-size: large;
+}
+.incdec{
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+}
+.headerTop{
+  width: 96%;
+  margin:auto;
+  display: grid;
+grid-template-columns: repeat(3,1fr); 
+ align-items:center;
+  text-align: center;
+}
+@media (max-width:540px) {
+  .incdec{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+  }  
+}

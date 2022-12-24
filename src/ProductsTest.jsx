@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./productTable.css";
+import "./productstest.css";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -130,38 +130,15 @@ const ProductTable = ({ products, setProducts, admin }) => {
           <div style={{ minWidth: "100px", textAlign: "center" }}>
             {calculateTotal(products)} ש"ח
           </div>
-          {/* <div
-            onClick={addToCart}
-            style={{ cursor: "pointer", minWidth: "100px" }}
-          >
-            תשלום
-          </div> */}
         </div>
       </div>
-      {/* <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
-          marginBottom: "20px",
-          marginTop: "20px",
-          textAlign: "center",
-        }}
-        className="TotalProducts"
-      >
-        <div></div>
-        <div></div>
-        <div>כמות</div>
-        <div>יחידות ב</div>
-        <div>מחיר</div>
-        <div></div>
-      </div> */}
-      <div style={{ marginTop: "15vh" }}>
+      <div className="productsCards">
         {products.map((product, i) => (
           <div
             key={i}
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+              gridTemplateColumns: "1fr",
               marginBottom: "20px",
               marginTop: "15px",
             }}
@@ -178,23 +155,34 @@ const ProductTable = ({ products, setProducts, admin }) => {
               <img
                 src={product.imageUrl}
                 alt={product.name}
-                width="70px"
-                height="70px"
+                width="100%"
+                height="150px"
                 style={{ borderRadius: "10px" }}
               />
             </div>
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+            //   style={{
+            //     display: "flex",
+            //     flexDirection: "column",
+            //     justifyContent: "center",
+            //     alignItems: "center",
+            //   }}
             >
-              <div style={{ textAlign: "center" }}>{product.name}</div>
-              <div> {product.price}ש"ח</div>
+              <div
+                style={{
+                  textAlign: "center",
+                  width: "90%",
+                  margin: "auto",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <div> {product.name}</div>
+                <div> {product.price} ש"ח </div>
+              </div>
             </div>
-            <div className="incdec">
+            <div className="incdecTest">
               <button
                 onClick={() => {
                   handleAddUnit(product);
@@ -220,17 +208,10 @@ const ProductTable = ({ products, setProducts, admin }) => {
               </button>
             </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <div className="totalProduct">
               {product.units * product.price} ש"ח
             </div>
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -239,7 +220,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
               }}
             >
               <button onClick={() => deleteUnits(product)}>איפוס</button>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

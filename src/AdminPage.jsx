@@ -5,7 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 
-const AdminPage = ({ products, setProducts }) => {
+const AdminPage = ({
+  products,
+  setProducts,
+  setShowChoose,
+  setShowAddProducts,
+  setShowOrders,
+}) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -89,11 +95,9 @@ const AdminPage = ({ products, setProducts }) => {
   };
   return (
     <div className="Admin">
-      <div
-        onClick={homePage}
-        style={{ paddingRight: "40px", marginTop: "15px" }}
-      >
+      <div className="adminPageHead">
         <div
+          onClick={homePage}
           style={{
             width: "fit-content",
             borderBottom: "2px solid black",
@@ -102,65 +106,96 @@ const AdminPage = ({ products, setProducts }) => {
         >
           דף הבית
         </div>
+        <div
+          style={{
+            width: "fit-content",
+            borderBottom: "2px solid black",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            setShowChoose(false);
+            setShowAddProducts(false);
+            setShowOrders(true);
+          }}
+        >
+          הזמנות{" "}
+        </div>
+        <div
+          style={{
+            width: "fit-content",
+            borderBottom: "2px solid black",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            setShowChoose(true);
+            setShowAddProducts(false);
+            setShowOrders(false);
+          }}
+        >
+          דף מנהל
+        </div>
       </div>
-      <div className="addProduct">
-        <h1>הוסף מוצרים</h1>
-        <form onSubmit={handleAddProduct}>
-          <div className="nameAndInput">
-            <div className="label">שם:</div>
-            <input
-              type="text"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
-          </div>
-          <br />
-          <div className="nameAndInput">
-            <div className="label">מחיר:</div>
-            <input
-              type="number"
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
-            />
-          </div>
-          <br />
-          <div className="nameAndInput">
-            <div className="label"> סוג יחידה:</div>
+      <div className="heroAdminPage">
+        <div className="heroBack"></div>
+        <div className="addProduct">
+          <h1>הוסף מוצרים</h1>
+          <form onSubmit={handleAddProduct}>
+            <div className="nameAndInput">
+              <div className="label">שם:</div>
+              <input
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </div>
+            <br />
+            <div className="nameAndInput">
+              <div className="label">מחיר:</div>
+              <input
+                type="number"
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
+              />
+            </div>
+            <br />
+            <div className="nameAndInput">
+              <div className="label"> סוג יחידה:</div>
 
-            <input
-              type="text"
-              placeholder='ק"ג, מארז, יח'
-              value={unitKind}
-              onChange={(event) => setUnitKind(event.target.value)}
-            />
-          </div>
-          <br />
-          <div className="nameAndInput">
-            תמונה:
-            <input
-              type="text"
-              value={imageUrl}
-              onChange={(event) => setImageUrl(event.target.value)}
-            />
-          </div>
-          {/* <div>{process.env.REACT_APP_BACKEND_URL}</div>
+              <input
+                type="text"
+                placeholder='ק"ג, מארז, יח'
+                value={unitKind}
+                onChange={(event) => setUnitKind(event.target.value)}
+              />
+            </div>
+            <br />
+            <div className="nameAndInput">
+              תמונה:
+              <input
+                type="text"
+                value={imageUrl}
+                onChange={(event) => setImageUrl(event.target.value)}
+              />
+            </div>
+            {/* <div>{process.env.REACT_APP_BACKEND_URL}</div>
           <div> {imageUrl}</div>
           <div> {price}</div>
           <div> {name}</div>
           <div>{unitKind}</div>
           <div>{logTest}</div>
           <div>{logTest2}</div> */}
-          <br />
-          <button type="submit" style={{ width: "100%" }}>
-            הוסף מוצר
-          </button>
-        </form>
+            <br />
+            <button type="submit" style={{ width: "100%" }}>
+              הוסף מוצר
+            </button>
+          </form>
+        </div>
       </div>
       <hr />
       <div>
         <h2 style={{ textAlign: "center" }}>מוצרים</h2>
       </div>
-      {products.map((product) => (
+      {products?.map((product) => (
         <div key={product._id} className="adminProducts">
           <div className="adminProductsTable">
             <img

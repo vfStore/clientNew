@@ -1,0 +1,23 @@
+.productsCards{
+    margin-top:15vh;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.incdecTest{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.totalProduct{
+   width: 60%;
+    margin: auto;
+    text-align: center;
+}
+@media (max-width:540px) {
+    .productsCards{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}

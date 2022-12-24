@@ -70,23 +70,11 @@ const Cart = ({ products, setProducts }) => {
       phone: userDetails.phone,
     });
   };
-  useEffect(() => {
-    const getOrders = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/orders.json");
-        const orders = response;
-        console.log(orders); // Log the orders to the console
-      } catch (error) {
-        console.error(error); // Log the error to the console
-      }
-    };
-    getOrders();
-  }, []);
 
   return (
     <>
       <div className="headerTopCart" onClick={backToHome}>
-        Logo
+        <img src="./logo.png" height="50px" width="140px" />
       </div>
       {addedToCart.length === 0 ? (
         <div

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import AdminPage from "./AdminPage";
+import AdminHomePage from "./AdminHomePage";
 import "./admin.css";
 export default function AdminLogin({ products, setAdmin, admin, setProducts }) {
   const [userLog, setUserLog] = useState({
@@ -67,7 +67,7 @@ export default function AdminLogin({ products, setAdmin, admin, setProducts }) {
           )}
         </div>
       ) : (
-        <AdminPage products={products} setProducts={setProducts} />
+        <AdminHomePage products={products} setProducts={setProducts} />
       )}
     </>
   );

@@ -4,6 +4,7 @@ import ProductTable from "./ProductTable";
 import Cart from "./Cart";
 import AdminPage from "./AdminPage";
 import AdminLogin from "./AdminLogin";
+import ProductsTest from "./ProductsTest";
 import axios from "axios";
 const App = () => {
   const [page, setPage] = useState("products");
@@ -42,6 +43,15 @@ const App = () => {
         <Route path="/cart" exact>
           <Cart products={products} setProducts={setProducts} />
         </Route>
+        <Route path="/ProductsTest" exact>
+          <ProductsTest
+            products={products}
+            setProducts={setProducts}
+            onAddToCart={handleAddToCart}
+            admin={admin}
+          />{" "}
+        </Route>
+
         {/* <Route path="/admin" exact>
           <AdminPage products={products} />
         </Route> */}

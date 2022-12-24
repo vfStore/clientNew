@@ -14,10 +14,14 @@ const AdminPage = ({ products, setProducts }) => {
   const [updateName, setUpdateName] = useState(false);
   const [errorNow, setErrorNow] = useState("");
   const [rowId, setRowId] = useState("");
+  const [logTest, setLogTest] = useState("");
+  const [logTest2, setLogTest2] = useState("");
   const history = useHistory();
+
   // const [product, setProduct] =
   const handleAddProduct = async (e) => {
     e.preventDefault();
+    setLogTest("first");
     // Send a POST request to the server to add a new product
     try {
       await axios.post(process.env.REACT_APP_BACKEND_URL, {
@@ -26,7 +30,9 @@ const AdminPage = ({ products, setProducts }) => {
         imageUrl: imageUrl,
         unitKind: unitKind,
       });
+      setLogTest2("second");
     } catch (error) {
+      setLogTest2("errorrr");
       setErrorNow(error.response.data.message);
     }
   };
@@ -133,7 +139,8 @@ const AdminPage = ({ products, setProducts }) => {
           <div> {price}</div>
           <div> {name}</div>
           <div>{unitKind}</div>
-          <div>{errorNow}</div>
+          <div>{logTest}</div>
+          <div>{logTest2}</div>
           <br />
           <button type="submit" style={{ width: "100%" }}>
             הוסף מוצר

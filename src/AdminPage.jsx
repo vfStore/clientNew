@@ -36,6 +36,10 @@ const AdminPage = ({ products, setProducts }) => {
           setProducts(res.data);
         });
       setLogTest2("second");
+      setPrice("");
+      setName("");
+      setImageUrl("");
+      setUnitKind("");
     } catch (error) {
       setLogTest2("errorrr");
       setErrorNow(error.response.data.message);

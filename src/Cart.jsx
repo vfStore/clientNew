@@ -4,13 +4,15 @@ import "./cart.css";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 const Cart = ({ products, setProducts }) => {
   //   const [products, setProducts] = useState([]);
   const [addedToCart, setAddedToCart] = useState([]);
   const [userDetails, setUserDetails] = useState({
-    userName: "",
+    firstName: "",
+    lastName: "",
     address: "",
-    telephone: "",
+    phone: "",
   });
   const [cash, setCash] = useState(true);
   const history = useHistory();
@@ -57,6 +59,30 @@ const Cart = ({ products, setProducts }) => {
   const backToHome = () => {
     history.push("/");
   };
+
+  const order = async (e) => {
+    e.preventDefault();
+    await axios.post(process.env.REACT_APP_BACKEND_URL + `/order`, {
+      order: addedToCart,
+      firstName: userDetails.firstName,
+      lastName: userDetails.lastName,
+      address: userDetails.address,
+      phone: userDetails.phone,
+    });
+  };
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/orders.json");
+        const orders = response;
+        console.log(orders); // Log the orders to the console
+      } catch (error) {
+        console.error(error); // Log the error to the console
+      }
+    };
+    getOrders();
+  }, []);
+
   return (
     <>
       <div className="headerTopCart" onClick={backToHome}>
@@ -230,7 +256,21 @@ const Cart = ({ products, setProducts }) => {
                       onChange={(e) =>
                         setUserDetails({
                           ...userDetails,
-                          userName: e.target.value,
+                          firstName: e.target.value,
+                        })
+                      }
+                    />
+                  </label>
+                  <br />
+                  <label>
+                    שם משפחה:
+                    <input
+                      type="text"
+                      className="inputCart"
+                      onChange={(e) =>
+                        setUserDetails({
+                          ...userDetails,
+                          lastName: e.target.value,
                         })
                       }
                     />
@@ -258,13 +298,17 @@ const Cart = ({ products, setProducts }) => {
                       onChange={(e) =>
                         setUserDetails({
                           ...userDetails,
-                          telephone: e.target.value,
+                          phone: e.target.value,
                         })
                       }
                     />
                   </label>
                   <br />
-                  <button type="submit" className="inputCartSubmit">
+                  <button
+                    type="submit"
+                    className="inputCartSubmit"
+                    onClick={order}
+                  >
                     הזמן
                   </button>
                 </form>

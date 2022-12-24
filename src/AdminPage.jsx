@@ -18,7 +18,7 @@ const AdminPage = ({ products, setProducts }) => {
   // const [product, setProduct] =
   const handleAddProduct = async () => {
     // Send a POST request to the server to add a new product
-    await axios.post(process.env.REACT_APP_BACKEND_URL +`/`, {
+    await axios.post(process.env.REACT_APP_BACKEND_URL, {
       name: name,
       price: price,
       imageUrl: imageUrl,
@@ -30,7 +30,7 @@ const AdminPage = ({ products, setProducts }) => {
     console.log(product);
     // Send a DELETE request to the server to delete the product with the given id
     await axios
-      .delete(process.env.REACT_APP_BACKEND_URL +`/${product._id}`)
+      .delete(process.env.REACT_APP_BACKEND_URL + `/${product._id}`)
       .then(async () => {
         const res = await axios.get(process.env.REACT_APP_BACKEND_URL);
         setProducts(res.data);
@@ -42,7 +42,7 @@ const AdminPage = ({ products, setProducts }) => {
     if (!price) return;
     // Send a PATCH request to the server to update the product
     await axios
-      .patch(process.env.REACT_APP_BACKEND_URL +`/${product._id}`, {
+      .patch(process.env.REACT_APP_BACKEND_URL + `/${product._id}`, {
         price: price,
       })
       .then(async () => {
@@ -55,7 +55,7 @@ const AdminPage = ({ products, setProducts }) => {
     if (!name) return;
     // Send a PATCH request to the server to update the product
     await axios
-      .patch(process.env.REACT_APP_BACKEND_URL +`/${product._id}`, {
+      .patch(process.env.REACT_APP_BACKEND_URL + `/${product._id}`, {
         name: name,
       })
       .then(async () => {

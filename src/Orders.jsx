@@ -13,7 +13,9 @@ export default function Orders({
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/orders/all");
+        const response = await axios.get(
+          process.env.REACT_APP_BACKEND_URL + "orders/all"
+        );
         setOrders(response.data);
         console.log(response.data); // Log the orders to the console
       } catch (error) {

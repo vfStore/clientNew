@@ -12,18 +12,22 @@ const AdminPage = ({ products, setProducts }) => {
   const [unitKind, setUnitKind] = useState("");
   const [updatePrice, setUpdatePrice] = useState(false);
   const [updateName, setUpdateName] = useState(false);
-
+  const [errorNow, setErrorNow] = useState("");
   const [rowId, setRowId] = useState("");
   const history = useHistory();
   // const [product, setProduct] =
   const handleAddProduct = async () => {
     // Send a POST request to the server to add a new product
-    await axios.post(process.env.REACT_APP_BACKEND_URL, {
-      name: name,
-      price: price,
-      imageUrl: imageUrl,
-      unitKind: unitKind,
-    });
+    try {
+      await axios.post(process.env.REACT_APP_BACKEND_URL, {
+        name: name,
+        price: price,
+        imageUrl: imageUrl,
+        unitKind: unitKind,
+      });
+    } catch (error) {
+      setErrorNow(error.message);
+    }
   };
 
   const handleDeleteProduct = async (product) => {
@@ -128,6 +132,7 @@ const AdminPage = ({ products, setProducts }) => {
           <div> {price}</div>
           <div> {name}</div>
           <div>{unitKind}</div>
+          <div>{errorNow}</div>
           <br />
           <button type="submit" style={{ width: "100%" }}>
             הוסף מוצר

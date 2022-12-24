@@ -16,7 +16,8 @@ const AdminPage = ({ products, setProducts }) => {
   const [rowId, setRowId] = useState("");
   const history = useHistory();
   // const [product, setProduct] =
-  const handleAddProduct = async () => {
+  const handleAddProduct = async (e) => {
+    e.preventDefault();
     // Send a POST request to the server to add a new product
     try {
       await axios.post(process.env.REACT_APP_BACKEND_URL, {
@@ -26,10 +27,10 @@ const AdminPage = ({ products, setProducts }) => {
         unitKind: unitKind,
       });
     } catch (error) {
-      setErrorNow(error.message);
+      setErrorNow(error.response.data.message);
     }
   };
-
+  console.log(errorNow);
   const handleDeleteProduct = async (product) => {
     console.log(product);
     // Send a DELETE request to the server to delete the product with the given id

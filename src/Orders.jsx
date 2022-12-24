@@ -117,7 +117,7 @@ export default function Orders({
           backgroundColor: "#f4f4f4",
           height: "fit-content",
           minHeight: "100vh",
-          width: "100vw",
+          width: "100%",
           margin: "auto",
         }}
       >

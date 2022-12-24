@@ -178,7 +178,7 @@
     align-items: flex-start;
 }
 .adminHomePage{
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
 }
 .Admin{
@@ -203,14 +203,14 @@
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 .CardAdmin{
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    height: 30vh;
+    height: 25vh;
     width: 80vw;
     font-size: 36px;
     color:white;

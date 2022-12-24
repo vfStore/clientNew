@@ -123,6 +123,11 @@ const AdminPage = ({ products, setProducts }) => {
               onChange={(event) => setImageUrl(event.target.value)}
             />
           </div>
+          <div>{process.env.REACT_APP_BACKEND_URL}</div>
+          <div> {imageUrl}</div>
+          <div> {price}</div>
+          <div> {name}</div>
+          <div>{unitKind}</div>
           <br />
           <button type="submit" style={{ width: "100%" }}>
             הוסף מוצר

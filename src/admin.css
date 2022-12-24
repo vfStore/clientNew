@@ -178,9 +178,8 @@
     align-items: flex-start;
 }
 .adminHomePage{
-    min-height: 90vh;
+    height: 92vh;
     width: 100%;
-    height: fit-content;
 }
 .Admin{
     background-image: url("https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");

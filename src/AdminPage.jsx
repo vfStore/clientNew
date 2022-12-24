@@ -24,12 +24,17 @@ const AdminPage = ({ products, setProducts }) => {
     setLogTest("first");
     // Send a POST request to the server to add a new product
     try {
-      await axios.post(process.env.REACT_APP_BACKEND_URL, {
-        name: name,
-        price: price,
-        imageUrl: imageUrl,
-        unitKind: unitKind,
-      });
+      await axios
+        .post(process.env.REACT_APP_BACKEND_URL, {
+          name: name,
+          price: price,
+          imageUrl: imageUrl,
+          unitKind: unitKind,
+        })
+        .then(async () => {
+          const res = await axios.get(process.env.REACT_APP_BACKEND_URL);
+          setProducts(res.data);
+        });
       setLogTest2("second");
     } catch (error) {
       setLogTest2("errorrr");
@@ -134,13 +139,13 @@ const AdminPage = ({ products, setProducts }) => {
               onChange={(event) => setImageUrl(event.target.value)}
             />
           </div>
-          <div>{process.env.REACT_APP_BACKEND_URL}</div>
+          {/* <div>{process.env.REACT_APP_BACKEND_URL}</div>
           <div> {imageUrl}</div>
           <div> {price}</div>
           <div> {name}</div>
           <div>{unitKind}</div>
           <div>{logTest}</div>
-          <div>{logTest2}</div>
+          <div>{logTest2}</div> */}
           <br />
           <button type="submit" style={{ width: "100%" }}>
             הוסף מוצר

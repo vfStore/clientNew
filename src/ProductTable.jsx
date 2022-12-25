@@ -216,7 +216,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
         <div>מחיר</div>
         <div></div>
       </div> */}
-      <div style={{ marginTop: "15vh", marginBottom: "5vh", width: "100%" }}>
+      <div style={{ marginTop: "15vh", marginBottom: "5vh", width: "%" }}>
         <div
           style={{
             width: "25px",
@@ -331,13 +331,10 @@ const ProductTable = ({ products, setProducts, admin }) => {
           ))}
         </div>
       </div>
-      <div className="TotalAmountBottom">
+      {/* <div className="TotalAmountBottom">
         <div colSpan="4">סה"כ</div>
         <div>{calculateTotal(products)} ש"ח</div>
-        {/* <div onClick={addToCart} style={{ cursor: "pointer" }}>
-          סל המוצרים
-        </div> */}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -288,13 +288,11 @@ const ProductTable = ({ products, setProducts, admin }) => {
           </div>
         ))}
       </div>
-      <div className="TotalAmountBottom">
+      {/* <div className="TotalAmountBottom">
         <div colSpan="4">סה"כ</div>
         <div>{calculateTotal(products)} ש"ח</div>
-        {/* <div onClick={addToCart} style={{ cursor: "pointer" }}>
-          סל המוצרים
-        </div> */}
-      </div>
+     
+      </div> */}
     </div>
   );
 };

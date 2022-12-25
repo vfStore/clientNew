@@ -28,7 +28,7 @@
 @media (max-width:540px) {
     .cartUnits{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         justify-content: space-between;
         align-items: center;
 }

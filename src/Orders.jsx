@@ -27,42 +27,123 @@ export default function Orders({
   const homePage = () => {
     history.push("/");
   };
+
+  const delivered = async (order) => {
+    await axios
+      .patch(process.env.REACT_APP_BACKEND_URL + `/orders/${order._id}`, {
+        delivered: "true",
+      })
+      .then(async () => {
+        const response = await axios.get(
+          process.env.REACT_APP_BACKEND_URL + "/orders/all"
+        );
+        setOrders(response.data);
+      });
+  };
+
+  const deleteOrder = async (order) => {
+    await axios
+      .delete(process.env.REACT_APP_BACKEND_URL + `/order/${order._id}`)
+      .then(async () => {
+        const response = await axios.get(
+          process.env.REACT_APP_BACKEND_URL + "/orders/all"
+        );
+        setOrders(response.data);
+      });
+  };
   console.log(orders);
   const drawOrders = () => {
     return orders?.map((order, i) => {
       return (
-        <div key={i} className="specificOrder">
-          <div>
-            <div>
-              {order.firstName}
-              {"  "}
-              {order.lastName}
+        <div key={i}>
+          {order.delivered === "false" ? (
+            <div key={i} className="specificOrder">
+              <div>
+                <div>
+                  {order.firstName}
+                  {"  "}
+                  {order.lastName}
+                </div>
+                <div>{order.address}</div>
+                <div>{order.phone}</div>
+                <div>
+                  {order.timestamp.slice(11, 16)}
+                  <br />
+                  {order.timestamp.slice(5, 10)}
+                </div>
+              </div>
+              <div className="ordersProducts">
+                {order.order.map((theOrder, i) => {
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <div className="orderName">{theOrder.name}</div>
+                      <div>
+                        {theOrder.units} {theOrder.unitKind}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div>
+                <button onClick={() => delivered(order)}>נשלח</button>
+              </div>
             </div>
-            <div>{order.address}</div>
-            <div>{order.phone}</div>
-            <div>
-              {order.timestamp.slice(11, 16)}
-              <br />
-              {order.timestamp.slice(5, 10)}
-            </div>
-          </div>
-          <div className="ordersProducts">
-            {order.order.map((theOrder, i) => {
-              return (
-                <div
-                  key={i}
+          ) : (
+            <div
+              key={i}
+              className="specificOrder"
+              style={{ background: "#74c0fc" }}
+            >
+              <div>
+                <div>
+                  {order.firstName}
+                  {"  "}
+                  {order.lastName}
+                </div>
+                <div>{order.address}</div>
+                <div>{order.phone}</div>
+                <div>
+                  {order.timestamp.slice(11, 16)}
+                  <br />
+                  {order.timestamp.slice(5, 10)}
+                </div>
+              </div>
+              <div className="ordersProducts">
+                {order.order.map((theOrder, i) => {
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <div className="orderName">{theOrder.name}</div>
+                      <div>
+                        {theOrder.units} {theOrder.unitKind}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div>
+                <span
                   style={{
-                    marginBottom: "10px",
+                    marginLeft: "10px",
+                    marginRight: "10px",
+                    fontWeight: "bold",
                   }}
                 >
-                  <div className="orderName">{theOrder.name}</div>
-                  <div>
-                    {theOrder.units} {theOrder.unitKind}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                  נשלח
+                </span>
+                <button onClick={() => deleteOrder(order)}>מחק</button>
+              </div>
+            </div>
+          )}
         </div>
       );
     });
@@ -118,7 +199,7 @@ export default function Orders({
           height: "fit-content",
           minHeight: "100vh",
           width: "100%",
-          margin: "auto",
+          //   margin: "auto",
         }}
       >
         {drawOrders()}

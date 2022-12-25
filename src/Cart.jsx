@@ -127,7 +127,7 @@ const Cart = ({ products, setProducts }) => {
                   key={i}
                   style={{
                     display: "grid",
-                    gridTemplateColumns: " 2fr 2fr 2fr 2fr 1fr",
+                    gridTemplateColumns: " 1fr 2fr 2fr 2fr 1fr",
                     marginBottom: "20px",
                     marginTop: "20px",
                     borderBottom: "1px solid gray",
@@ -146,8 +146,8 @@ const Cart = ({ products, setProducts }) => {
                     <img
                       src={product.imageUrl}
                       alt={product.name}
-                      width="70px"
-                      height="70px"
+                      width="40px"
+                      height="40px"
                       style={{ borderRadius: "10px" }}
                     />
                   </div>

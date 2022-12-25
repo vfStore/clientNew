@@ -15,7 +15,11 @@ export default function AdminHomePage({ products, setProducts }) {
     <div className="adminHomePage">
       {showChoose ? (
         <div className="cardsAdmin">
-          <div onClick={goHome} className="CardAdmin">
+          <div
+            onClick={goHome}
+            className="CardAdmin"
+            style={{ cursor: "pointer" }}
+          >
             דף הבית
           </div>
           <div
@@ -25,6 +29,7 @@ export default function AdminHomePage({ products, setProducts }) {
               setShowChoose(false);
             }}
             className="CardAdmin"
+            style={{ cursor: "pointer" }}
           >
             הזמנות
           </div>
@@ -35,6 +40,7 @@ export default function AdminHomePage({ products, setProducts }) {
               setShowChoose(false);
             }}
             className="CardAdmin"
+            style={{ cursor: "pointer" }}
           >
             הוסף מוצרים
           </div>

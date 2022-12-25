@@ -15,7 +15,7 @@
 .headerTopCart{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
    align-items:center;
     text-align: center;
     font-weight: bold;

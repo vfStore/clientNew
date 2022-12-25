@@ -81,8 +81,14 @@ const Cart = ({ products, setProducts }) => {
   };
   return (
     <>
-      <div className="headerTopCart" onClick={backToHome}>
-        <img src="./logo.png" height="50px" width="140px" />
+      <div className="headerTopCart">
+        <div onClick={backToHome} style={{ cursor: "pointer" }}>
+          דף הבית
+        </div>
+        <div onClick={backToHome}>
+          <img src="./logo.png" height="50px" width="140px" />
+        </div>
+        <div></div>
       </div>
       {addedToCart.length === 0 ? (
         <div
@@ -220,7 +226,7 @@ const Cart = ({ products, setProducts }) => {
                       alignItems: "center",
                     }}
                   >
-                    <div>
+                    <div style={{ cursor: "pointer" }}>
                       <FontAwesomeIcon
                         onClick={() => deleteUnits(product)}
                         icon={faTrash}
@@ -244,6 +250,7 @@ const Cart = ({ products, setProducts }) => {
                         setCash(!cash);
                         setCc(false);
                       }}
+                      style={{ cursor: "pointer" }}
                     >
                       מזומן
                     </button>
@@ -252,6 +259,7 @@ const Cart = ({ products, setProducts }) => {
                         setCc(true);
                         setCash(false);
                       }}
+                      style={{ cursor: "pointer" }}
                     >
                       כרטיס אשראי
                     </button>

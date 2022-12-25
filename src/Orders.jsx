@@ -99,7 +99,7 @@ export default function Orders({
               className="specificOrder"
               style={{ background: "#74c0fc" }}
             >
-              <div>
+              <div style={{ marginRight: "10px" }}>
                 <div>
                   {order.firstName}
                   {"  "}
@@ -108,8 +108,10 @@ export default function Orders({
                 <div>{order.address}</div>
                 <div>{order.phone}</div>
                 <div>
+                  שעה:{"  "}
                   {order.timestamp.slice(11, 16)}
                   <br />
+                  תאריך:{"  "}
                   {order.timestamp.slice(5, 10)}
                 </div>
               </div>

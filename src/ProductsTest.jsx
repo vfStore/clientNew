@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./productstest.css";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faList } from "@fortawesome/free-solid-svg-icons";
 
 const ProductTable = ({ products, setProducts, admin }) => {
   const [customer, setCustomer] = useState(products);
@@ -42,6 +42,9 @@ const ProductTable = ({ products, setProducts, admin }) => {
   const goToAdminPage = () => {
     history.push("/admin");
   };
+  const changeStyle = () => {
+    history.push("/");
+  };
 
   async function logout() {
     try {
@@ -62,7 +65,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
 
   return (
     <>
-      <div className="TotalAmountFix">
+      <div className="TotalAmountTop">
         <div className="headerTop">
           {admin?.user.role === "admin" ? (
             <div
@@ -132,7 +135,13 @@ const ProductTable = ({ products, setProducts, admin }) => {
           </div>
         </div>
       </div>
-      <div className="productsCards">
+      <div
+        style={{ marginTop: "15vh", marginRight: "10px" }}
+        onClick={changeStyle}
+      >
+        <FontAwesomeIcon icon={faList} size="2x" />
+      </div>
+      <div className="productsCards" style={{ marginBottom: "5vh" }}>
         {products.map((product, i) => (
           <div
             key={i}
@@ -140,7 +149,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
               display: "grid",
               gridTemplateColumns: "1fr",
               marginBottom: "20px",
-              marginTop: "15px",
+              //   marginTop: "15px",
             }}
             className="TotalProducts"
           >
@@ -224,12 +233,12 @@ const ProductTable = ({ products, setProducts, admin }) => {
           </div>
         ))}
       </div>
-      <div className="TotalAmount">
+      <div className="TotalAmountBottom">
         <div colSpan="4">סה"כ</div>
         <div>{calculateTotal(products)} ש"ח</div>
-        <div onClick={addToCart} style={{ cursor: "pointer" }}>
+        {/* <div onClick={addToCart} style={{ cursor: "pointer" }}>
           סל המוצרים
-        </div>
+        </div> */}
       </div>
     </>
   );

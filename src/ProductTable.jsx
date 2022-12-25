@@ -43,6 +43,9 @@ const ProductTable = ({ products, setProducts, admin }) => {
     history.push("/admin");
   };
 
+  const changeStyle = () => {
+    history.push("/productsTest");
+  };
   async function logout() {
     try {
       const response = await fetch("/users/logout", {
@@ -62,7 +65,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
 
   return (
     <>
-      <div className="TotalAmountFix">
+      <div className="TotalAmountTop">
         <div className="headerTop">
           {admin?.user.role === "admin" ? (
             <div
@@ -155,82 +158,108 @@ const ProductTable = ({ products, setProducts, admin }) => {
         <div>מחיר</div>
         <div></div>
       </div> */}
-      <div style={{ marginTop: "15vh" }}>
-        {products.map((product, i) => (
+      <div style={{ marginTop: "15vh", marginBottom: "5vh" }}>
+        <div
+          style={{
+            width: "25px",
+            height: "25px",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "3px",
+            marginRight: "10px",
+            borderRadius: "5px",
+          }}
+          onClick={changeStyle}
+        >
           <div
-            key={i}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-              marginBottom: "20px",
-              marginTop: "15px",
-            }}
-            className="TotalProducts"
-          >
+            style={{ backgroundColor: "black", width: "100%", height: "100%" }}
+          ></div>
+          <div
+            style={{ backgroundColor: "black", width: "100%", height: "100%" }}
+          ></div>
+          <div
+            style={{ backgroundColor: "black", width: "100%", height: "100%" }}
+          ></div>
+          <div
+            style={{ backgroundColor: "black", width: "100%", height: "100%" }}
+          ></div>
+        </div>
+        <div>
+          {products.map((product, i) => (
             <div
+              key={i}
               style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
+                display: "grid",
+                gridTemplateColumns: " 1fr 1fr 1fr 1fr",
+                marginBottom: "20px",
+                marginTop: "15px",
               }}
+              className="TotalProducts"
             >
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                width="70px"
-                height="70px"
-                style={{ borderRadius: "10px" }}
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div style={{ textAlign: "center" }}>{product.name}</div>
-              <div> {product.price}ש"ח</div>
-            </div>
-            <div className="incdec">
-              <button
-                onClick={() => {
-                  handleAddUnit(product);
-                  setUnitId(product._id);
-                  handleCartHeader();
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-                style={{ borderRadius: "50%", cursor: "pointer" }}
               >
-                +
-              </button>
-              {product.units}
-              {"  "}
-              {product.unitKind}
-              <button
-                onClick={() => {
-                  handleDecUnit(product);
-                  setUnitId(product._id);
-                  handleCartHeader();
+                <img
+                  src={product.imageUrl}
+                  alt={product.name}
+                  width="70px"
+                  height="70px"
+                  style={{ borderRadius: "10px" }}
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-                style={{ borderRadius: "50%", cursor: "pointer" }}
               >
-                -
-              </button>
-            </div>
+                <div style={{ textAlign: "center" }}>{product.name}</div>
+                <div> {product.price}ש"ח</div>
+              </div>
+              <div className="incdec">
+                <button
+                  onClick={() => {
+                    handleAddUnit(product);
+                    setUnitId(product._id);
+                    handleCartHeader();
+                  }}
+                  style={{ borderRadius: "50%", cursor: "pointer" }}
+                >
+                  +
+                </button>
+                {product.units}
+                {"  "}
+                {product.unitKind}
+                <button
+                  onClick={() => {
+                    handleDecUnit(product);
+                    setUnitId(product._id);
+                    handleCartHeader();
+                  }}
+                  style={{ borderRadius: "50%", cursor: "pointer" }}
+                >
+                  -
+                </button>
+              </div>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {product.units * product.price} ש"ח
-            </div>
-            <div
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {product.units * product.price} ש"ח
+              </div>
+              {/* <div
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -239,16 +268,17 @@ const ProductTable = ({ products, setProducts, admin }) => {
               }}
             >
               <button onClick={() => deleteUnits(product)}>איפוס</button>
+            </div> */}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      <div className="TotalAmount">
+      <div className="TotalAmountBottom">
         <div colSpan="4">סה"כ</div>
         <div>{calculateTotal(products)} ש"ח</div>
-        <div onClick={addToCart} style={{ cursor: "pointer" }}>
+        {/* <div onClick={addToCart} style={{ cursor: "pointer" }}>
           סל המוצרים
-        </div>
+        </div> */}
       </div>
     </>
   );

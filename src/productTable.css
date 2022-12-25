@@ -1,5 +1,8 @@
-.TotalAmount{
+.TotalAmountBottom{
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-top: 15px;
     margin: auto;
     display: flex;
     justify-content: space-around;
@@ -20,7 +23,20 @@
       padding:3px;
 
 }
-.TotalAmountFix{
+.TotalAmount{
+  width: 100%;
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow:  10px 10px 30px #aba8a8,
+      -5px -5px 10px #ffffff;
+    padding:3px;
+    font-weight:bold;
+    font-size: large;
+}
+.TotalAmountTop{
   position: fixed;
   top: 0;
   left: 0;
@@ -55,8 +71,8 @@ grid-template-columns: repeat(3,1fr);
 @media (max-width:540px) {
   .incdec{
     display: flex;
-    flex-direction: column;
-    justify-content:space-between;
+    /* flex-direction: column; */
+    justify-content:space-around;
     align-items:center;
   }  
 }

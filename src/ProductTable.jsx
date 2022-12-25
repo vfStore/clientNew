@@ -74,6 +74,42 @@ const ProductTable = ({ products, setProducts, admin }) => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <div
+        onClick={addToCart}
+        style={{
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "fixed",
+          width: "30px",
+          top: "50vh",
+          right: 0,
+        }}
+      >
+        <div style={{ position: "relative", width: "40px" }}>
+          <FontAwesomeIcon icon={faCartShopping} />{" "}
+          {addedToCartHeader.length === 0 ? null : (
+            <div
+              style={{
+                position: "absolute",
+                top: "-30%",
+                right: "0",
+                height: "20px",
+                width: "20px",
+                backgroundColor: "red",
+                borderRadius: "50%",
+                color: "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {addedToCartHeader.length}
+            </div>
+          )}
+        </div>
+      </div>
       <div className="TotalAmountTop">
         <div className="headerTop">
           {admin?.user.role === "admin" ? (

@@ -216,7 +216,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
         <div>מחיר</div>
         <div></div>
       </div> */}
-      <div style={{ marginTop: "14vh", marginBottom: "5vh", width: "95%" }}>
+      <div style={{ marginTop: "15vh", marginBottom: "5vh", width: "95%" }}>
         <div
           style={{
             width: "25px",

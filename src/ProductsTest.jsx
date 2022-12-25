@@ -196,7 +196,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
       <div
         style={{
           width: "95%",
-          margin: "13vh 0 auto auto",
+          margin: "15vh 0 auto auto",
           marginRight: "30px",
         }}
         onClick={changeStyle}

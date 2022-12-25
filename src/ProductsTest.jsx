@@ -182,14 +182,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
                 style={{ borderRadius: "10px" }}
               />
             </div>
-            <div
-            //   style={{
-            //     display: "flex",
-            //     flexDirection: "column",
-            //     justifyContent: "center",
-            //     alignItems: "center",
-            //   }}
-            >
+            <div>
               <div
                 style={{
                   textAlign: "center",

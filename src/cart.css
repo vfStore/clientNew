@@ -12,6 +12,12 @@
         align-items: center
     
 }
+.backGroundAfter{
+    background-image: url('/public/afterpayment.jpg');
+}
+.backgroundcover{
+background-color: rgb(240, 248, 255,0.8);
+}
 .headerTopCart{
     width: 100%;
     display: flex;

@@ -33,6 +33,7 @@ const Cart = ({ products, setProducts }) => {
   const [product, setProduct] = useState("");
   const [successfull, setSuccessfull] = useState(false);
   const [cc, setCc] = useState(false);
+  const [theOrder, setTheOrder] = useState([]);
   const handleAddUnit = (product) => {
     console.log(product._id);
     setProduct({ ...product, units: product.units++ });
@@ -74,17 +75,55 @@ const Cart = ({ products, setProducts }) => {
     setSuccessfull(true);
     setCc(false);
     setCash(false);
+    setTheOrder({
+      order: addedToCart,
+      firstName: userDetails.firstName,
+      lastName: userDetails.lastName,
+      address: userDetails.address,
+      phone: userDetails.phone,
+    });
   };
   const backToHomeButton = () => {
     history.push("/");
     window.location.reload();
   };
+
+  console.log(theOrder.order);
+
+  const drawLastOrder = () => {
+    return theOrder.order.map((order, i) => {
+      return (
+        <div
+          key={i}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "20px",
+            textAlign: "center",
+            borderBottom: "1px solid black",
+          }}
+        >
+          <h3>{order.name}</h3>
+          <h3>
+            {order.units}
+            {"  "}
+            {order.unitKind}
+          </h3>
+        </div>
+      );
+    });
+  };
   return (
     <>
       <div className="headerTopCart">
-        <div onClick={backToHome} style={{ cursor: "pointer" }}>
-          דף הבית
-        </div>
+        {!successfull ? (
+          <div onClick={backToHome} style={{ cursor: "pointer" }}>
+            דף הבית
+          </div>
+        ) : (
+          <div></div>
+        )}
+
         <div onClick={backToHome}>
           <img src="./logo.png" height="50px" width="140px" />
         </div>
@@ -357,14 +396,28 @@ const Cart = ({ products, setProducts }) => {
               style={{
                 width: "100%",
                 height: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
               }}
+              className="backGroundAfter"
             >
-              <h2>הזמנה בוצעה בהצלחה</h2> <br />
-              <button onClick={backToHomeButton}>חזרה לדף הבית</button>
+              <div
+                className="backgroundcover"
+                style={{
+                  width: "100%",
+                  height: "100vh",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <h1>הזמנה בוצעה בהצלחה</h1> <br />
+                <button onClick={backToHomeButton}>חזרה לדף הבית</button>
+                <div style={{ textAlign: "center" }}>
+                  <h2>סה"כ: {calculateTotal(addedToCart)} ש"ח</h2>
+                  <h2>ההזמנה שלי</h2>
+                  <div>{drawLastOrder()}</div>
+                </div>
+              </div>
             </div>
           ) : null}
         </>

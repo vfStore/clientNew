@@ -64,7 +64,16 @@ const ProductTable = ({ products, setProducts, admin }) => {
   }
 
   return (
-    <>
+    <div
+      style={{
+        backgroundImage: `url(
+      "https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    )`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="TotalAmountTop">
         <div className="headerTop">
           {admin?.user.role === "admin" ? (
@@ -136,7 +145,11 @@ const ProductTable = ({ products, setProducts, admin }) => {
         </div>
       </div>
       <div
-        style={{ marginTop: "15vh", marginRight: "10px" }}
+        style={{
+          width: "95%",
+          margin: "13vh 0 auto auto",
+          marginRight: "30px",
+        }}
         onClick={changeStyle}
       >
         <FontAwesomeIcon icon={faList} size="2x" />
@@ -240,7 +253,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
           סל המוצרים
         </div> */}
       </div>
-    </>
+    </div>
   );
 };
 

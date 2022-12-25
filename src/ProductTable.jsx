@@ -64,7 +64,16 @@ const ProductTable = ({ products, setProducts, admin }) => {
   }
 
   return (
-    <>
+    <div
+      style={{
+        backgroundImage: `url(
+        "https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      )`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="TotalAmountTop">
         <div className="headerTop">
           {admin?.user.role === "admin" ? (
@@ -158,7 +167,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
         <div>מחיר</div>
         <div></div>
       </div> */}
-      <div style={{ marginTop: "15vh", marginBottom: "5vh" }}>
+      <div style={{ marginTop: "14vh", marginBottom: "5vh", width: "95%" }}>
         <div
           style={{
             width: "25px",
@@ -166,7 +175,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "3px",
-            marginRight: "10px",
+            marginRight: "30px",
             borderRadius: "5px",
           }}
           onClick={changeStyle}
@@ -191,8 +200,8 @@ const ProductTable = ({ products, setProducts, admin }) => {
               style={{
                 display: "grid",
                 gridTemplateColumns: " 1fr 1fr 1fr 1fr",
-                marginBottom: "20px",
-                marginTop: "15px",
+                // marginBottom: "10px",
+                marginTop: "10px",
               }}
               className="TotalProducts"
             >
@@ -280,7 +289,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
           סל המוצרים
         </div> */}
       </div>
-    </>
+    </div>
   );
 };
 

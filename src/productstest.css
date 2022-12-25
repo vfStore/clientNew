@@ -1,7 +1,10 @@
 .productsCards{
+    width:95%;
+    margin:auto;
     margin-top:15px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(6,1fr);
+    gap:15px;
 }
 .incdecTest{
     width: 60%;
@@ -14,6 +17,13 @@
    width: 60%;
     margin: auto;
     text-align: center;
+}
+
+@media (min-width:540px) and (max-width:900px) {
+    .productsCards{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
 }
 @media (max-width:540px) {
     .productsCards{

@@ -65,14 +65,14 @@ const ProductTable = ({ products, setProducts, admin }) => {
 
   return (
     <div
-      style={{
-        backgroundImage: `url(
-        "https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-      )`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
+    // style={{
+    //   backgroundImage: `url(
+    //   "https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    // )`,
+    //   backgroundPosition: "center",
+    //   backgroundSize: "cover",
+    //   backgroundRepeat: "no-repeat",
+    // }}
     >
       <div
         onClick={addToCart}
@@ -82,18 +82,31 @@ const ProductTable = ({ products, setProducts, admin }) => {
           justifyContent: "center",
           alignItems: "center",
           position: "fixed",
-          width: "30px",
-          top: "50vh",
+          width: "40px",
+          height: "30px",
+          bottom: "130px",
+          background: "white",
           right: 0,
+          border: "2px solid black",
+          borderRight: "none",
+          borderRadius: "10px",
         }}
       >
-        <div style={{ position: "relative", width: "40px" }}>
+        <div
+          style={{
+            position: "relative",
+            width: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <FontAwesomeIcon icon={faCartShopping} />{" "}
           {addedToCartHeader.length === 0 ? null : (
             <div
               style={{
                 position: "absolute",
-                top: "-30%",
+                top: "-70%",
                 right: "0",
                 height: "20px",
                 width: "20px",

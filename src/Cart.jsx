@@ -248,7 +248,7 @@ const Cart = ({ products, setProducts }) => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: "24px",
+                        fontSize: "22px",
                         // fontWeight: "bold",
                         paddingBottom: "5px",
                       }}

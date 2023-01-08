@@ -125,7 +125,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
       </div>
       <div className="TotalAmountTop">
         <div className="headerTop">
-          {admin?.user.role === "admin" ? (
+          {admin?.user?.role === "admin" ? (
             <div
               onClick={goToAdminPage}
               style={{
@@ -140,7 +140,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
           <div style={{ cursor: "pointer" }}>
             <img src="./logo.png" height="50px" width="140px" />
           </div>
-          {admin?.user.role === "admin" ? (
+          {admin?.user?.role === "admin" ? (
             <div
               onClick={logout}
               style={{
@@ -292,13 +292,14 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     color: "black",
-                    height: "26px",
-                    width: "26px",
+                    height: "22px",
+                    width: "22px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "24px",
+                    fontSize: "20px",
                     fontWeight: "bold",
+                    padding: "1px",
                   }}
                 >
                   +
@@ -316,13 +317,14 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     color: "black",
-                    height: "26px",
-                    width: "26px",
+                    height: "22px",
+                    width: "22px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "24px",
+                    fontSize: "20px",
                     fontWeight: "bold",
+                    padding: "1px",
                   }}
                 >
                   -

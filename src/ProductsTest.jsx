@@ -253,7 +253,19 @@ const ProductTable = ({ products, setProducts, admin }) => {
                   setUnitId(product._id);
                   handleCartHeader();
                 }}
-                style={{ borderRadius: "50%", cursor: "pointer", color:"black", height:"15px", width:"15px" }}
+                style={{
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  color: "black",
+                  height: "22px",
+                  width: "22px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  padding: "1px",
+                }}
               >
                 +
               </button>
@@ -266,7 +278,19 @@ const ProductTable = ({ products, setProducts, admin }) => {
                   setUnitId(product._id);
                   handleCartHeader();
                 }}
-                style={{ borderRadius: "50%", cursor: "pointer", color:"black", height:"15px", width:"15px" }}
+                style={{
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  color: "black",
+                  height: "22px",
+                  width: "22px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  padding: "1px",
+                }}
               >
                 -
               </button>

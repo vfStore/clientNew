@@ -292,12 +292,13 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     color: "black",
-                    height: "20px",
-                    width: "20px",
+                    height: "26px",
+                    width: "26px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "28px",
+                    fontSize: "24px",
+                    fontWeight: "bold",
                   }}
                 >
                   +
@@ -315,12 +316,13 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     color: "black",
-                    height: "20px",
-                    width: "20px",
+                    height: "26px",
+                    width: "26px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "28px",
+                    fontSize: "24px",
+                    fontWeight: "bold",
                   }}
                 >
                   -

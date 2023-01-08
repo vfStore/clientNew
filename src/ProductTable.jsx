@@ -297,6 +297,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    fontSize: "28px",
                   }}
                 >
                   +
@@ -319,6 +320,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    fontSize: "28px",
                   }}
                 >
                   -

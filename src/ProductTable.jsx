@@ -292,8 +292,11 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     color: "black",
-                    height: "15px",
-                    width: "15px",
+                    height: "20px",
+                    width: "20px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   +
@@ -311,8 +314,11 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     borderRadius: "50%",
                     cursor: "pointer",
                     color: "black",
-                    height: "15px",
-                    width: "15px",
+                    height: "20px",
+                    width: "20px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   -

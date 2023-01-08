@@ -223,8 +223,8 @@ const Cart = ({ products, setProducts }) => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: "24px",
-                        // fontWeight: "bold",
+                        fontSize: "20px",
+                        fontWeight: "bold",
                         padding: "1px",
                       }}
                     >
@@ -248,9 +248,9 @@ const Cart = ({ products, setProducts }) => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        fontSize: "22px",
-                        // fontWeight: "bold",
-                        paddingBottom: "5px",
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        padding: "1px",
                       }}
                     >
                       -

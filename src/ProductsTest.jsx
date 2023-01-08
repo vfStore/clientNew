@@ -262,8 +262,8 @@ const ProductTable = ({ products, setProducts, admin }) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  fontSize: "20px",
-                  fontWeight: "bold",
+                  fontSize: "24px",
+                  // fontWeight: "bold",
                   padding: "1px",
                 }}
               >
@@ -287,9 +287,9 @@ const ProductTable = ({ products, setProducts, admin }) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                  padding: "1px",
+                  fontSize: "24px",
+                  // fontWeight: "bold",
+                  paddingBottom: "5px",
                 }}
               >
                 -

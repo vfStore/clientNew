@@ -294,11 +294,13 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     color: "black",
                     height: "22px",
                     width: "22px",
+
+                    // textAlign: "center",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "20px",
-                    fontWeight: "bold",
+                    fontSize: "24px",
+                    // fontWeight: "bold",
                     padding: "1px",
                   }}
                 >
@@ -320,11 +322,12 @@ const ProductTable = ({ products, setProducts, admin }) => {
                     height: "22px",
                     width: "22px",
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                    padding: "1px",
+                    fontSize: "24px",
+                    // fontWeight: "bold",
+                    paddingBottom: "5px",
                   }}
                 >
                   -

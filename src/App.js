@@ -66,12 +66,18 @@ const App = () => {
         </Route>
 
         <Route path={process.env.REACT_APP_ADMIN_URL+"/orders"} exact>
-          <Orders
+          {admin ? (<Orders
             products={products}
             setAdmin={setAdmin}
             admin={admin}
             setProducts={setProducts}
-          />
+          />):(<AdminLogin
+            products={products}
+            setAdmin={setAdmin}
+            admin={admin}
+            setProducts={setProducts}
+          />)}
+          
         </Route>
       </BrowserRouter>
     </div>

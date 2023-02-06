@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import ProductTable from "./ProductTable";
 import "./cart.css";
+
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import emailjs from '@emailjs/browser';
 const Cart = ({ products, setProducts }) => {
   //   const [products, setProducts] = useState([]);
   const [addedToCart, setAddedToCart] = useState([]);
@@ -16,6 +18,7 @@ const Cart = ({ products, setProducts }) => {
   });
   const [cash, setCash] = useState(true);
   const history = useHistory();
+  const form = useRef();
   useEffect(() => {
     const cartProducts = products.filter((product) => product.units !== 0);
     setAddedToCart(cartProducts);
@@ -82,13 +85,18 @@ const Cart = ({ products, setProducts }) => {
       address: userDetails.address,
       phone: userDetails.phone,
     });
+    emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE, process.env.REACT_APP_EMAILJS_TEMPLATE, form.current, process.env.REACT_APP_EMAILJS_KEY)
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
   };
   const backToHomeButton = () => {
     history.push("/");
     window.location.reload();
   };
 
-  console.log(theOrder.order);
 
   const drawLastOrder = () => {
     return theOrder.order.map((order, i) => {
@@ -333,7 +341,7 @@ const Cart = ({ products, setProducts }) => {
                 <div>
                   {cash && (
                     <>
-                      <form
+                      <form ref={form}
                         style={{
                           width: "80%",
                           margin: "auto",
@@ -343,6 +351,7 @@ const Cart = ({ products, setProducts }) => {
                         <label>
                           שם:
                           <input
+                          name="user_name"
                             type="text"
                             className="inputCart"
                             onChange={(e) =>
@@ -358,6 +367,7 @@ const Cart = ({ products, setProducts }) => {
                         <label>
                           שם משפחה:
                           <input
+                          name="last_name"
                             type="text"
                             className="inputCart"
                             required
@@ -373,6 +383,7 @@ const Cart = ({ products, setProducts }) => {
                         <label>
                           כתובת:
                           <input
+                          name="address"
                             type="text"
                             className="inputCart"
                             required
@@ -388,6 +399,7 @@ const Cart = ({ products, setProducts }) => {
                         <label>
                           טלפון:
                           <input
+                          name="phone"
                             type="number"
                             className="inputCart"
                             required

@@ -6,6 +6,7 @@ import AdminPage from "./AdminPage";
 import AdminLogin from "./AdminLogin";
 import ProductsTest from "./ProductsTest";
 import axios from "axios";
+import Orders from "./Orders";
 const App = () => {
   const [page, setPage] = useState("products");
   const [products, setProducts] = useState([]);
@@ -57,6 +58,15 @@ const App = () => {
         </Route> */}
         <Route path={process.env.REACT_APP_ADMIN_URL} exact>
           <AdminLogin
+            products={products}
+            setAdmin={setAdmin}
+            admin={admin}
+            setProducts={setProducts}
+          />
+        </Route>
+
+        <Route path={process.env.REACT_APP_ADMIN_URL+"/orders"} exact>
+          <Orders
             products={products}
             setAdmin={setAdmin}
             admin={admin}

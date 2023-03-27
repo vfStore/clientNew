@@ -44,7 +44,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
   };
 
   const changeStyle = () => {
-    history.push("/productsTest");
+    history.push("/");
   };
   async function logout() {
     try {

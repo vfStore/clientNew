@@ -43,7 +43,7 @@ const ProductTable = ({ products, setProducts, admin }) => {
     history.push("/admin");
   };
   const changeStyle = () => {
-    history.push("/ProductTable");
+    history.push("/productsTest");
   };
 
   async function logout() {

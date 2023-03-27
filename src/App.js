@@ -33,24 +33,25 @@ const App = () => {
       <BrowserRouter>
         <Route path="/" exact>
           {page === "products" && (
-            <ProductTable
-              products={products}
-              setProducts={setProducts}
-              onAddToCart={handleAddToCart}
-              admin={admin}
-            />
+            <ProductsTest
+            products={products}
+            setProducts={setProducts}
+            onAddToCart={handleAddToCart}
+            admin={admin}
+          />
           )}
         </Route>
         <Route path="/cart" exact>
           <Cart products={products} setProducts={setProducts} />
         </Route>
         <Route path="/ProductsTest" exact>
-          <ProductsTest
-            products={products}
-            setProducts={setProducts}
-            onAddToCart={handleAddToCart}
-            admin={admin}
-          />{" "}
+        <ProductTable
+              products={products}
+              setProducts={setProducts}
+              onAddToCart={handleAddToCart}
+              admin={admin}
+            />
+         
         </Route>
 
         {/* <Route path="/admin" exact>
